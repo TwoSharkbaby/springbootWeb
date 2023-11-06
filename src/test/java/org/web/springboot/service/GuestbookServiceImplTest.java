@@ -23,17 +23,17 @@ public class GuestbookServiceImplTest {
     @Autowired
     private GuestbookRepository guestbookRepository;
 
-    @BeforeEach
-    public void setup(){
-        IntStream.rangeClosed(1, 10).forEach(i -> {
-            Guestbook guestbook = Guestbook.builder()
-                    .title("Title..." + i)
-                    .content("Content..." + i)
-                    .writer("user" + (i % 10))
-                    .build();
-            System.out.println(guestbookRepository.save(guestbook));
-        });
-    }
+//    @BeforeEach
+//    public void setup(){
+//        IntStream.rangeClosed(1, 10).forEach(i -> {
+//            Guestbook guestbook = Guestbook.builder()
+//                    .title("Title..." + i)
+//                    .content("Content..." + i)
+//                    .writer("user" + (i % 10))
+//                    .build();
+//            System.out.println(guestbookRepository.save(guestbook));
+//        });
+//    }
 
     @Test
     public void testRegister(){
@@ -53,5 +53,21 @@ public class GuestbookServiceImplTest {
             System.out.println(guestbookDTO);
         }
         resultDTO.getPageList().forEach(System.out::println);
+    }
+
+    @Test
+    public void testSearch(){
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
+                .page(1)
+                .size(10)
+                .type("tcw")
+                .keyword("3")
+                .build();
+        PageResultDTO<GuestbookDTO, Guestbook> resultDTO = service.getList(pageRequestDTO);
+
+        for (GuestbookDTO guestbookDTO : resultDTO.getDtoList()) {
+            System.out.println("guestbookDTO = " + guestbookDTO);
+        }
+        resultDTO.getDtoList().forEach(System.out::println);
     }
 }
