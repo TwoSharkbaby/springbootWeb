@@ -23,6 +23,8 @@ import java.util.function.Function;
 public class BoardServiceImpl implements BoardService{
 
     private final BoardRepository repository;
+
+    @Transactional
     @Override
     public Long register(BoardDTO dto) {
         Board board = dtoToEntity(dto);
@@ -40,5 +42,13 @@ public class BoardServiceImpl implements BoardService{
                         .getPageable(Sort.by("bno").descending()));
 
         return new PageResultDTO<>(result, fn);
+    }
+
+
+    @Override
+    public BoardDTO get(Long bno) {
+        Object result = repository.getBoardBno(bno);
+        Object[] arr = (Object[]) result;
+        return entityToDTO((Board) arr[0], (Member) arr[1], (Long) arr[2]);
     }
 }
