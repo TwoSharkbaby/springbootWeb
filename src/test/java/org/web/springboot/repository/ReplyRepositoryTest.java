@@ -8,6 +8,7 @@ import org.web.springboot.entity.Reply;
 
 import javax.persistence.criteria.CriteriaBuilder;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -42,5 +43,12 @@ public class ReplyRepositoryTest {
         Reply reply = result.get();
         System.out.println("reply = " + reply);
         System.out.println("reply.getBoard() = " + reply.getBoard());
+    }
+
+    // 테스트 필요
+    @Test
+    public void testListByBoard(){
+        List<Reply> replyList = replyRepository.getRepliesByBoardOrderByRno(Board.builder().bno(97L).build());
+        replyList.forEach(System.out::println);
     }
 }
