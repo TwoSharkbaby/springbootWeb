@@ -51,7 +51,6 @@ public class BoardServiceTest {
         boardService.removeWithReplies(bno);
     }
 
-    // 테스트 필요
     @Test
     public void testModify(){
         BoardDTO boardDTO = BoardDTO.builder()

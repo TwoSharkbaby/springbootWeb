@@ -62,4 +62,11 @@ public class BoardController {
         redirectAttributes.addAttribute("bno", dto.getBno());
         return "redirect:/board/read";
     }
+
+    @PostMapping("/remove")
+    public String remove(long bno, RedirectAttributes redirectAttributes){
+        boardService.removeWithReplies(bno);
+        redirectAttributes.addFlashAttribute("msg", bno);
+        return "redirect:/board/list";
+    }
 }

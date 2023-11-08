@@ -45,7 +45,6 @@ public class ReplyRepositoryTest {
         System.out.println("reply.getBoard() = " + reply.getBoard());
     }
 
-    // 테스트 필요
     @Test
     public void testListByBoard(){
         List<Reply> replyList = replyRepository.getRepliesByBoardOrderByRno(Board.builder().bno(97L).build());

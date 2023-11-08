@@ -15,7 +15,6 @@ public class ReplyServiceTest {
     @Autowired
     private ReplyService service;
 
-    // 테스트 필요
     @Test
     public void testGetList(){
         Long bno = 100L;
