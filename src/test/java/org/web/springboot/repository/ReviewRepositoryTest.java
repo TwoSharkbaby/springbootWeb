@@ -20,7 +20,6 @@ public class ReviewRepositoryTest {
     private ReviewRepository reviewRepository;
 
     @Test
-    @DisplayName("테스트 필요")
     public void insertMovieReviews(){
         IntStream.rangeClosed(1, 200).forEach(i -> {
             Long mno = (long)(Math.random()*100)+1;
@@ -38,7 +37,6 @@ public class ReviewRepositoryTest {
     }
 
     @Test
-    @DisplayName("테스트 필요")
     public void insertGetMovieReview(){
         Movie movie = Movie.builder().mno(92L).build();
         List<Review> result = reviewRepository.findByMovie(movie);

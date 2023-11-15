@@ -22,7 +22,6 @@ public class MemberRepositoryTest {
     private MemberRepository memberRepository;
 
     @Test
-    @DisplayName("테스트 필요")
     public void insertMembers(){
         IntStream.rangeClosed(1, 100).forEach(i -> {
             Member member = Member.builder()
@@ -37,7 +36,6 @@ public class MemberRepositoryTest {
     @Commit
     @Transactional
     @Test
-    @DisplayName("테스트 필요")
     public void testDeleteMember(){
         Long mid = 1L;
         Member member = Member.builder().mid(mid).build();

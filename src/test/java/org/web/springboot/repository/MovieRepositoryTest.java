@@ -32,7 +32,6 @@ public class MovieRepositoryTest {
     @Commit
     @Transactional
     @Test
-    @DisplayName("테스트 필요")
     public void insertMovies(){
         IntStream.rangeClosed(1, 100).forEach(i -> {
             Movie movie = Movie.builder().title("Movie..." + i).build();
@@ -53,7 +52,6 @@ public class MovieRepositoryTest {
     }
 
     @Test
-    @DisplayName("테스트 필요")
     public void testListPage(){
         PageRequest pageRequest = PageRequest.of(0, 10, Sort.by(Sort.Direction.DESC, "mno"));
 
@@ -65,7 +63,6 @@ public class MovieRepositoryTest {
     }
 
     @Test
-    @DisplayName("테스트 필요")
     public void testGetMovieWithAll(){
         List<Object[]> result = movieRepository.getMovieWithAll(94L);
         System.out.println("result = " + result);
