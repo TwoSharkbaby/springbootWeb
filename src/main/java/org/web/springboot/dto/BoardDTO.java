@@ -1,6 +1,7 @@
 package org.web.springboot.dto;
 
 import lombok.*;
+import org.springframework.format.annotation.NumberFormat;
 
 import java.time.LocalDateTime;
 
@@ -26,4 +27,5 @@ public class BoardDTO {
     private LocalDateTime modDate;
 
     private int replyCount;
+
 }

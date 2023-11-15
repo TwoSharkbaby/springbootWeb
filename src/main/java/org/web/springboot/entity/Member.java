@@ -2,8 +2,7 @@ package org.web.springboot.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Builder
@@ -11,12 +10,16 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @Getter
 @ToString
+@Table(name = "m_member")
 public class Member extends BaseEntity{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long mid;
+
     private String email;
 
-    private String password;
+    private String pw;
 
-    private String name;
+    private String nickname;
 }

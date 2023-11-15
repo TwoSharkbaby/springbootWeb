@@ -47,7 +47,7 @@ public class BoardController {
     }
 
     @GetMapping("/modify")
-    public String modify(@ModelAttribute("requestDTO") PageRequestDTO requestDTOv, Long bno, Model model){
+    public String modify(@ModelAttribute("requestDTO") PageRequestDTO requestDTO, Long bno, Model model){
         BoardDTO boardDTO = boardService.get(bno);
         model.addAttribute("dto", boardDTO);
         return "board/modify";
